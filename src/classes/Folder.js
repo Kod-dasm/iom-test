@@ -9,5 +9,7 @@ export default class Folder extends Node {
     this.childrens.push(node);
   }
 
-  getNewId() { return `${this.id}-${++this.number}` }
+  getNewId() {
+    return `${this.id}-${++this.number}`;
+  }
 }

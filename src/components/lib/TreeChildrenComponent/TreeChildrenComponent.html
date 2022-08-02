@@ -10,7 +10,8 @@
     </div>
     <div class="tree-item__side tree-item__side--righ">
       <button class="tree-item__btn tree-item__btn--edit"></button>
-      <button class="tree-item__btn tree-item__btn--garbage"></button>
+      <button class="tree-item__btn tree-item__btn--garbage" @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes)"></button>
+      <!-- <button class="tree-item__btn tree-item__btn--garbage" @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes)"></button> -->
     </div>
   </li>
   <tree-children-component

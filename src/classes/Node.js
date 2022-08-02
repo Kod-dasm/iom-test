@@ -5,6 +5,7 @@ export default class Node {
   }
 
   remove(arrayNodes) {
+    console.log("node = ", this)
     return this.findNodeToRemove(arrayNodes, this.id);
   }
 
