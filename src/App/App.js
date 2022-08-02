@@ -1,11 +1,11 @@
-// import HelloWorld from './components/HelloWorld.vue'
+import { TreeParentComponent } from '@/components'
 import { Folder, File } from "../classes";
 
 export default {
   name: "App",
-  // components: {
-  //   HelloWorld
-  // }
+  components: {
+    TreeParentComponent
+  },
 
   setup() {
     let arrayNodes = [];

@@ -4,10 +4,6 @@ export default class Node {
     this.name = `${name} ${this.id}`;
   }
 
-  sayHi() {
-    console.log(this);
-  }
-
   remove(arrayNodes) {
     return this.findNodeToRemove(arrayNodes, this.id);
   }

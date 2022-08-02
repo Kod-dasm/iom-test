@@ -1,0 +1,2 @@
+export { default as TreeParentComponent } from './lib/TreeParentComponent/TreeParentComponent.vue'
+export { default as TreeChildrenComponent } from './lib/TreeChildrenComponent/TreeChildrenComponent.vue'

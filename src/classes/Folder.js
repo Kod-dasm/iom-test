@@ -2,7 +2,7 @@ import { Node } from ".";
 
 export default class Folder extends Node {
   number = 0;
-  icon = "../assets/folder.png";
+  icon = "folder.png";
   childrens = [];
 
   add(node) {

@@ -1,0 +1,21 @@
+<ul class="tree tree--children">
+  <li class="tree__item tree__item--indent">
+    <div class="tree-item__side tree-item__side--left">
+      <img
+        class="tree-item__img tree-item__img--indent"
+        :src="require(`@/assets/${node.icon}`)"
+        alt=""
+      />
+      <p class="tree-item__name">{{ node.name }}</p>
+    </div>
+    <div class="tree-item__side tree-item__side--righ">
+      <button class="tree-item__btn tree-item__btn--edit"></button>
+      <button class="tree-item__btn tree-item__btn--garbage"></button>
+    </div>
+  </li>
+  <tree-children-component
+    v-for="children in node.childrens"
+    :key="children.id"
+    :node="children"
+  ></tree-children-component>
+</ul>
