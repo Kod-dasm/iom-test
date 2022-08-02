@@ -1,0 +1,13 @@
+.tree {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  list-style-type: none;
+}
+
+.tree--parent {
+  width: 800px;
+  height: 600px;
+  margin: 10px;
+}
