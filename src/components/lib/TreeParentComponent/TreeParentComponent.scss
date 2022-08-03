@@ -11,3 +11,25 @@
   height: 600px;
   margin: 10px;
 }
+
+@media (max-width: 1024px) {
+  .tree--parent {
+    width: 400px;
+    height: 280px;
+    margin: 15px;
+  }
+}
+
+@media (max-width: 628px) {
+  .tree--parent {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .tree--parent {
+    width: 220px;
+    height: 160px;
+  }
+}
