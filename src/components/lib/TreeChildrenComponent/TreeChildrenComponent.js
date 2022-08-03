@@ -6,7 +6,6 @@ import { useDataTreeStore } from "@/stores/dataTree";
 export default {
   props: {
     node: Object,
-    index: Number,
   },
   components: {
     TreeChildrenComponent,

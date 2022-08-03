@@ -6,19 +6,14 @@ export default class Node {
     this.name = `${name} ${this.id}`;
   }
 
-  remove(arrayNodes) {
-    console.log("node = ", this);
-    return this.findNodeToRemove(arrayNodes, this.id);
-  }
-
-  findNodeToRemove(nodes, id) {
+  remove(nodes, id) {
     for (let node of nodes) {
-      const idCurrentDepth = this.getIdCurrentDepth(node.id);
+      const idCurrentDepth = node.getIdCurrentDepth(id);
       if (String(node.id) === idCurrentDepth) {
         if (idCurrentDepth === String(id)) {
           return nodes.filter((item) => item.id !== id);
         }
-        node.childrens = this.findNodeToRemove(node.childrens, id);
+        node.childrens = this.remove(node.childrens, id);
         return nodes;
       }
     }
@@ -33,13 +28,13 @@ export default class Node {
     this.isEdit = true;
     ref["el"].focus();
   }
-  
+
   onBlur() {
     this.isEdit = false;
   }
-  
+
   onEnter(event) {
     this.isEdit = false;
-    event.target.blur(); 
+    event.target.blur();
   }
 }

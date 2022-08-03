@@ -23,7 +23,7 @@
       ></button>
       <button
         class="tree-item__btn tree-item__btn--garbage"
-        @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes)"
+        @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes, node.id)"
       ></button>
     </div>
   </li>
@@ -31,6 +31,5 @@
     v-for="(children, index) in node.childrens"
     :key="children.id"
     :node="children"
-    :index="index"
   ></tree-children-component>
 </ul>
