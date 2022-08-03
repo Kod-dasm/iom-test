@@ -1,7 +1,8 @@
 <ul class="tree tree--parent">
   <tree-children-component
-    v-for="node in arrayNodes"
+    v-for="(node, index) in arrayNodes"
     :key="node.id"
     :node="node"
+    :index="index"
   ></tree-children-component>
 </ul>

@@ -6,17 +6,31 @@
         :src="require(`@/assets/${node.icon}`)"
         alt=""
       />
-      <p class="tree-item__name">{{ node.name }}</p>
+      <input
+        class="tree-item__name tree-item__input"
+        :class="{ 'tree-item__input--active': node.isEdit }"
+        :ref="setItemRef"
+        v-model="node.name"
+        @blur="node.onBlur()"
+        @keyup.enter="node.onEnter($event)"
+        @click="node.handlerEdit(itemRef)"
+      />
     </div>
     <div class="tree-item__side tree-item__side--righ">
-      <button class="tree-item__btn tree-item__btn--edit"></button>
-      <button class="tree-item__btn tree-item__btn--garbage" @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes)"></button>
-      <!-- <button class="tree-item__btn tree-item__btn--garbage" @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes)"></button> -->
+      <button
+        class="tree-item__btn tree-item__btn--edit"
+        @click="node.handlerEdit(itemRef)"
+      ></button>
+      <button
+        class="tree-item__btn tree-item__btn--garbage"
+        @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes)"
+      ></button>
     </div>
   </li>
   <tree-children-component
-    v-for="children in node.childrens"
+    v-for="(children, index) in node.childrens"
     :key="children.id"
     :node="children"
+    :index="index"
   ></tree-children-component>
 </ul>

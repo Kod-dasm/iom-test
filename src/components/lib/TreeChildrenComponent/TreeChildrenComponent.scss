@@ -22,6 +22,7 @@
   align-items: center;
   height: 25px;
   background-color: #cbcbcc85;
+  box-shadow: 2px 2px 2px;
 }
 
 .tree__item--indent {
@@ -55,6 +56,24 @@
 
 .tree-item__name {
   font-size: 16px;
+}
+
+.tree-item__input {
+  background-color: inherit;
+  border: none;
+}
+
+.tree-item__input:disabled {
+  color: black;
+}
+
+.tree-item__input:focus { 
+  outline: none;
+ }
+
+.tree-item__input--active {
+  background-color: white;
+  box-shadow: 1px 1px 1px;
 }
 
 .tree-item__btn:hover {
