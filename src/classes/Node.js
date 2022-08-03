@@ -4,6 +4,7 @@ export default class Node {
   constructor(id, name = this.constructor.name) {
     this.id = id;
     this.name = `${name} ${this.id}`;
+    this.lastName = this.name
   }
 
   remove(nodes, id) {
@@ -30,11 +31,31 @@ export default class Node {
   }
 
   onBlur() {
+    this.checkValidName()
     this.isEdit = false;
   }
 
   onEnter(event) {
-    this.isEdit = false;
+    this.checkValidName()
     event.target.blur();
+    this.isEdit = false;
+  }
+
+  onEsc(event) {
+    this.leaveName()
+    event.target.blur();
+    this.isEdit = false;
+  }
+
+  checkValidName() {
+    this.name.length > 0 ? this.changeName() : this.leaveName()
+  }
+
+  leaveName() {
+    this.name = this.lastName
+  }
+
+  changeName() {
+    this.lastName = this.name
   }
 }

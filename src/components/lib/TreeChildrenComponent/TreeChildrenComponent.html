@@ -13,6 +13,7 @@
         v-model="node.name"
         @blur="node.onBlur()"
         @keyup.enter="node.onEnter($event)"
+        @keyup.esc="node.onEsc($event)"
         @click="node.handlerEdit(itemRef)"
       />
     </div>
