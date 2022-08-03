@@ -26,3 +26,15 @@ body {
   scrollbar-width: thin;
   scrollbar-color: hsl(0 0% 50%);
 }
+
+@media (max-width: 628px) {
+  .frame {
+    border: 20px solid rgb(160, 160, 160); 
+  }
+}
+
+@media (max-width: 400px) {
+  .frame {
+    border: 10px solid rgb(160, 160, 160); 
+  }
+}

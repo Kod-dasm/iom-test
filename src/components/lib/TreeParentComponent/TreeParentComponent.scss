@@ -16,7 +16,7 @@
   .tree--parent {
     width: 400px;
     height: 280px;
-    margin: 10px;
+    margin: 15px;
   }
 }
 
@@ -24,6 +24,12 @@
   .tree--parent {
     width: 300px;
     height: 200px;
-    margin: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .tree--parent {
+    width: 220px;
+    height: 160px;
   }
 }
