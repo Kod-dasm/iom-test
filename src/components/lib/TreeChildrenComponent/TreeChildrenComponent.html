@@ -17,20 +17,25 @@
         @click="node.handlerEdit(itemRef)"
       />
     </div>
-    <div class="tree-item__side tree-item__side--righ">
+    <div class="tree-item__side">
+      <!-- <button
+        class="tree-item__btn tree-item__btn--plus"
+        @click="node.handlerEdit(itemRef)"
+        v-if="node.constructor.name === 'Folder'"
+      ></button> -->
       <button
         class="tree-item__btn tree-item__btn--edit"
         @click="node.handlerEdit(itemRef)"
       ></button>
       <button
         class="tree-item__btn tree-item__btn--garbage"
-        @click="dataTree.arrayNodes = node.remove(dataTree.arrayNodes, node.id)"
+        @click="node.handlerRemove(node)"
       ></button>
     </div>
   </li>
   <tree-children-component
-    v-for="(children, index) in node.childrens"
-    :key="children.id"
-    :node="children"
+    v-for="(child, index) in node.children"
+    :key="child.id"
+    :node="child"
   ></tree-children-component>
 </ul>

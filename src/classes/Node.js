@@ -1,28 +1,26 @@
+import { nanoid } from "nanoid";
+
 export default class Node {
   isEdit = false;
 
-  constructor(id, name = this.constructor.name) {
-    this.id = id;
-    this.name = `${name} ${this.id}`;
-    this.lastName = this.name
+  constructor(parent, name = this.constructor.name) {
+    this.parent = parent;
+    this.id = nanoid();
+    // this.name = `${name} ${this.id}`;
+    this.name = name;
+    this.lastName = this.name;
   }
 
-  remove(nodes, id) {
-    for (let node of nodes) {
-      const idCurrentDepth = node.getIdCurrentDepth(id);
-      if (String(node.id) === idCurrentDepth) {
-        if (idCurrentDepth === String(id)) {
-          return nodes.filter((item) => item.id !== id);
-        }
-        node.childrens = this.remove(node.childrens, id);
-        return nodes;
-      }
-    }
+  getParent() {
+    return this.parent;
   }
 
-  getIdCurrentDepth(id) {
-    const lengthId = String(this.id).split("-").length;
-    return String(id).split("-").slice(0, lengthId).join("-");
+  handlerRemove(node) {
+    node.getParent().children = [...node.getParent().findNodeById(node.id)];
+  }
+
+  findNodeById(id) {
+    return this.children.filter((child) => child.id !== id);
   }
 
   handlerEdit(ref) {
@@ -31,31 +29,31 @@ export default class Node {
   }
 
   onBlur() {
-    this.checkValidName()
+    this.checkValidName();
     this.isEdit = false;
   }
 
   onEnter(event) {
-    this.checkValidName()
+    this.checkValidName();
     event.target.blur();
     this.isEdit = false;
   }
 
   onEsc(event) {
-    this.leaveName()
+    this.leaveName();
     event.target.blur();
     this.isEdit = false;
   }
 
   checkValidName() {
-    this.name.length > 0 ? this.changeName() : this.leaveName()
+    this.name.length > 0 ? this.changeName() : this.leaveName();
   }
 
   leaveName() {
-    this.name = this.lastName
+    this.name = this.lastName;
   }
 
   changeName() {
-    this.lastName = this.name
+    this.lastName = this.name;
   }
 }

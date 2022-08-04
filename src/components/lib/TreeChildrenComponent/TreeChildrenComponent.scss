@@ -6,11 +6,6 @@
   list-style-type: none;
 }
 
-.tree--parent {
-  width: 800px;
-  height: 600px;
-  margin: 10px;
-}
 
 .tree--children {
   margin-left: 15px;
@@ -67,10 +62,6 @@
   color: black;
 }
 
-.tree-item__input:focus { 
-  outline: none;
- }
-
 .tree-item__input--active {
   background-color: white;
   box-shadow: 1px 1px 1px;
@@ -83,6 +74,13 @@
 
 .tree-item__btn:active {
   opacity: .4;
+}
+
+.tree-item__btn--plus {
+  background: url(@/assets/plus.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
 }
 
 .tree-item__btn--edit {
