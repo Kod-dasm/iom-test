@@ -11,7 +11,7 @@ export default {
   setup() {
     const dataTree = useDataTreeStore();
 
-    dataTree.arrayNodes.import(dataTree.tree);
+    dataTree.root.import(dataTree.tree);
 
     return {
       dataTree,

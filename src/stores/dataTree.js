@@ -40,6 +40,6 @@ export const useDataTreeStore = defineStore({
         },
       ],
     },
-    arrayNodes: new Folder(null, ""),
+    root: new Folder(null, ""),
   }),
 });

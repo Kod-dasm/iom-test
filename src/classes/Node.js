@@ -1,11 +1,11 @@
-import uuid from "node-uuid";
+import { nanoid } from "nanoid";
 
 export default class Node {
   isEdit = false;
 
   constructor(parent, name = this.constructor.name) {
     this.parent = parent;
-    this.id = uuid.v4();
+    this.id = nanoid();
     // this.name = `${name} ${this.id}`;
     this.name = name;
     this.lastName = this.name;
