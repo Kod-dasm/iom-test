@@ -17,14 +17,14 @@
         @click="node.handlerEdit(itemRef)"
       />
     </div>
-    <div class="tree-item__side">
-      <!-- <button
-        class="tree-item__btn tree-item__btn--plus"
-        @click="node.handlerEdit(itemRef)"
-        v-if="node.constructor.name === 'Folder'"
-      ></button> -->
+    <div class="tree-item__side tree-item__side--right">
       <button
-        class="tree-item__btn tree-item__btn--edit"
+        class="tree-item__btn tree-item__btn--plus"
+        @click="node.onAdded()"
+        v-if="node.constructor.name === 'Folder'"
+      ></button>
+      <button
+        class="tree-item__btn tree-item__btn--edit tree-item__btn--indent"
         @click="node.handlerEdit(itemRef)"
       ></button>
       <button
@@ -38,4 +38,6 @@
     :key="child.id"
     :node="child"
   ></tree-children-component>
+  <add-node-component v-if="node.constructor.name === 'Folder' && node.isAdded">
+  </add-node-component>
 </ul>

@@ -1,5 +1,6 @@
 import { ref } from "vue";
 import { default as TreeChildrenComponent } from "@/components/lib/TreeChildrenComponent/TreeChildrenComponent.vue";
+import { default as AddNodeComponent } from "@/components/lib/AddNodeComponent/AddNodeComponent.vue";
 
 import { useDataTreeStore } from "@/stores/dataTree";
 
@@ -9,6 +10,7 @@ export default {
   },
   components: {
     TreeChildrenComponent,
+    AddNodeComponent,
   },
 
   setup() {

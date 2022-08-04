@@ -1,6 +1,7 @@
 import { Node, File } from ".";
 
 export default class Folder extends Node {
+  isAdded = false;
   number = 0;
   icon = "folder.png";
   children = [];
@@ -19,5 +20,9 @@ export default class Folder extends Node {
         this.add(new File(this, node.name));
       }
     }
+  }
+
+  onAdded() {
+    this.isAdded = !this.isAdded;
   }
 }
