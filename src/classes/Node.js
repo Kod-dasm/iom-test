@@ -7,7 +7,7 @@ export default class Node {
     this.parent = parent
     this.id = uuid.v4();
     // this.name = `${name} ${this.id}`;
-    this.name = `${name}`;
+    this.name = name;
     this.lastName = this.name
   }
 
@@ -16,10 +16,10 @@ export default class Node {
   }
 
   handlerRemove(node) {
-    return node.getParent().removeNode(node.id)
+    node.getParent().children = [...node.getParent().findNodeById(node.id)]
   }
 
-  removeNode(id) {
+  findNodeById(id) {
     return this.children.filter((child) => child.id !== id);
   }
 

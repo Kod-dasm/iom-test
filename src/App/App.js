@@ -12,17 +12,13 @@ export default {
   setup() {
     const dataTree = useDataTreeStore();
 
-    dataTree.arrayNodes.push(new Folder(++dataTree.numberNode));
-    dataTree.arrayNodes[0].add(new Folder(dataTree.arrayNodes[0].getNewId()));
-    dataTree.arrayNodes[0].children[0].add(
-      new File(dataTree.arrayNodes[0].children[0].getNewId())
-    );
-    dataTree.arrayNodes[0].add(new File(dataTree.arrayNodes[0].getNewId()));
-
-    dataTree.arrayNodes.push(new Folder(++dataTree.numberNode));
-    dataTree.arrayNodes[1].add(new Folder(dataTree.arrayNodes[1].getNewId()));
-    dataTree.arrayNodes[1].add(new File(dataTree.arrayNodes[1].getNewId()));
-    dataTree.arrayNodes.push(new File(++dataTree.numberNode));
+    dataTree.arrayNodes = new Folder(null)
+    dataTree.arrayNodes.add(new Folder(dataTree.arrayNodes));
+    dataTree.arrayNodes.children[0].add(new Folder(dataTree.arrayNodes.children[0]));
+    dataTree.arrayNodes.children[0].add(new Folder(dataTree.arrayNodes.children[0]));
+    dataTree.arrayNodes.children[0].children[0].add(new File(dataTree.arrayNodes.children[0].children[0]));
+    dataTree.arrayNodes.add(new Folder(dataTree.arrayNodes));
+    dataTree.arrayNodes.add(new File(dataTree.arrayNodes));
 
     return {
       dataTree,
