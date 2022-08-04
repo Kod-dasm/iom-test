@@ -6,11 +6,6 @@
   list-style-type: none;
 }
 
-.tree--parent {
-  width: 800px;
-  height: 600px;
-  margin: 10px;
-}
 
 .tree--children {
   margin-left: 15px;
@@ -66,10 +61,6 @@
 .tree-item__input:disabled {
   color: black;
 }
-
-.tree-item__input:focus { 
-  outline: none;
- }
 
 .tree-item__input--active {
   background-color: white;

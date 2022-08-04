@@ -3,10 +3,10 @@ import { Node } from ".";
 export default class Folder extends Node {
   number = 0;
   icon = "folder.png";
-  childrens = [];
+  children = [];
 
   add(node) {
-    this.childrens.push(node);
+    this.children.push(node);
   }
 
   getNewId() {

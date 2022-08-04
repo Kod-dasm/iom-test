@@ -14,8 +14,8 @@ export default {
 
     dataTree.arrayNodes.push(new Folder(++dataTree.numberNode));
     dataTree.arrayNodes[0].add(new Folder(dataTree.arrayNodes[0].getNewId()));
-    dataTree.arrayNodes[0].childrens[0].add(
-      new File(dataTree.arrayNodes[0].childrens[0].getNewId())
+    dataTree.arrayNodes[0].children[0].add(
+      new File(dataTree.arrayNodes[0].children[0].getNewId())
     );
     dataTree.arrayNodes[0].add(new File(dataTree.arrayNodes[0].getNewId()));
 

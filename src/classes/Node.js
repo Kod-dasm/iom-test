@@ -1,28 +1,26 @@
+import uuid from 'node-uuid'
+
 export default class Node {
   isEdit = false;
 
-  constructor(id, name = this.constructor.name) {
-    this.id = id;
-    this.name = `${name} ${this.id}`;
+  constructor(parent, name = this.constructor.name) {
+    this.parent = parent
+    this.id = uuid.v4();
+    // this.name = `${name} ${this.id}`;
+    this.name = `${name}`;
     this.lastName = this.name
   }
 
-  remove(nodes, id) {
-    for (let node of nodes) {
-      const idCurrentDepth = node.getIdCurrentDepth(id);
-      if (String(node.id) === idCurrentDepth) {
-        if (idCurrentDepth === String(id)) {
-          return nodes.filter((item) => item.id !== id);
-        }
-        node.childrens = this.remove(node.childrens, id);
-        return nodes;
-      }
-    }
+  getParent() {
+    return this.parent
   }
 
-  getIdCurrentDepth(id) {
-    const lengthId = String(this.id).split("-").length;
-    return String(id).split("-").slice(0, lengthId).join("-");
+  handlerRemove(node) {
+    return node.getParent().removeNode(node.id)
+  }
+
+  removeNode(id) {
+    return this.children.filter((child) => child.id !== id);
   }
 
   handlerEdit(ref) {
