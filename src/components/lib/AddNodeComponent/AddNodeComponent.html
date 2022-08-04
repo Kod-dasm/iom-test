@@ -1,10 +1,26 @@
 <ul class="tree tree--children">
   <li class="tree__item tree__item--indent">
     <div class="tree-item__side tree-item__side--left">
-      (+) New Node (+)
+      <img
+        class="tree-item__img tree-item__img--indent"
+        :src="require(`@/assets/${selectedNode.value ? selectedNode.value : 'plus' + '.png'}`)"
+        alt=""
+      />
+      <input
+        class="tree-item__name tree-item__input"
+        v-model="name"
+      />
+      <select class="tree-item__select tree-item__select--active" v-model="selectedNode">
+        <option 
+          v-for="node in arrayNode"
+          :value="node.value"
+          :label="node.value"
+          :key="node.value"
+        />
+      </select>
     </div>
     <div class="tree-item__side">
-      
+      <button class="tree-item__ok tree-item__ok--indent">OK</button>
     </div>
   </li>
 </ul>
