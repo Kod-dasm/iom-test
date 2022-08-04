@@ -1,4 +1,4 @@
-import { Node } from ".";
+import { Node, File } from ".";
 
 export default class Folder extends Node {
   number = 0;
@@ -9,7 +9,15 @@ export default class Folder extends Node {
     this.children.push(node);
   }
 
-  getNewId() {
-    return `${this.id}-${++this.number}`;
+  import(tree) {
+    for (let node of tree.children) {
+      if (node.children) {
+        const folder = new Folder(this, node.name);
+        folder.import(node);
+        this.add(folder);
+      } else {
+        this.add(new File(this, node.name));
+      }
+    }
   }
 }

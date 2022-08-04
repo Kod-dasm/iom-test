@@ -76,6 +76,13 @@
   opacity: .4;
 }
 
+.tree-item__btn--plus {
+  background: url(@/assets/plus.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+}
+
 .tree-item__btn--edit {
   background: url(@/assets/edit.png);
   background-size: contain;

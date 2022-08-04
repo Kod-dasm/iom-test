@@ -2,7 +2,7 @@ import { default as TreeChildrenComponent } from "@/components/lib/TreeChildrenC
 
 export default {
   props: {
-    arrayNodes: Array,
+    arrayNodes: Object,
   },
   components: {
     TreeChildrenComponent,

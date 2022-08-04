@@ -18,6 +18,11 @@
       />
     </div>
     <div class="tree-item__side">
+      <!-- <button
+        class="tree-item__btn tree-item__btn--plus"
+        @click="node.handlerEdit(itemRef)"
+        v-if="node.constructor.name === 'Folder'"
+      ></button> -->
       <button
         class="tree-item__btn tree-item__btn--edit"
         @click="node.handlerEdit(itemRef)"
