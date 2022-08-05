@@ -94,22 +94,22 @@
   margin-left: 10px;
 }
 
-.tree-item__ok {
+.tree-item__btn-ok {
   width: 40px;
   height: 20px;
   box-shadow: 1px 1px 1px;
   border: none;
 }
 
-.tree-item__ok:hover {
+.tree-item__btn-ok:hover {
   font-size: 12px;
 }
 
-.tree-item__ok:active {
+.tree-item__btn-ok:active {
   opacity: .4;
 }
 
-.tree-item__ok--indent {
+.tree-item__btn-ok--indent {
   margin-right: 2px;
 }
 

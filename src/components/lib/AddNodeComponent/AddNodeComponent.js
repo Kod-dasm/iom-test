@@ -7,7 +7,6 @@ export default {
   },
 
   setup() {
-    
     const itemRef = ref({});
     const setItemRef = (el) => {
       if (el) {
@@ -29,8 +28,10 @@ export default {
     let selectedNode = ref("");
 
     function addNode(parent, child, selectedClass) {
-      selectedClass === 'Folder' ? parent.add(new Folder(parent, child.name)) : parent.add(new File(parent, child.name))
-      parent.isAdded = false
+      selectedClass === "Folder"
+        ? parent.add(new Folder(parent, child.name))
+        : parent.add(new File(parent, child.name));
+      parent.isAdded = false;
     }
 
     return {
@@ -40,7 +41,6 @@ export default {
       setItemRef,
       newNode,
       addNode,
-
     };
   },
 };

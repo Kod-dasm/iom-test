@@ -6,7 +6,6 @@ export default class Node {
   constructor(parent, name = this.constructor.name) {
     this.parent = parent;
     this.id = nanoid();
-    // this.name = `${name} ${this.id}`;
     this.name = name;
     this.lastName = this.name;
   }

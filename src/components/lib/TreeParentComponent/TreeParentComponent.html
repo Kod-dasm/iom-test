@@ -4,4 +4,5 @@
     :key="node.id"
     :node="node"
   ></tree-children-component>
+  <add-node-component v-if="root.isAdded" :node="root" />
 </ul>
