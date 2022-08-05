@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 
 export default class Node {
+  className = "Node"
   isEdit = false;
 
   constructor(parent, name = this.constructor.name) {

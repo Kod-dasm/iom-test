@@ -21,7 +21,7 @@
       <button
         class="tree-item__btn tree-item__btn--plus"
         @click="node.onAdded()"
-        v-if="node.constructor.name === 'Folder'"
+        v-if="node.className === 'Folder'"
       ></button>
       <button
         class="tree-item__btn tree-item__btn--edit tree-item__btn--indent"
@@ -39,7 +39,7 @@
     :node="child"
   ></tree-children-component>
   <add-node-component
-    v-if="node.constructor.name === 'Folder' && node.isAdded"
+    v-if="node.className === 'Folder' && node.isAdded"
     :node="node"
   />
 </ul>
