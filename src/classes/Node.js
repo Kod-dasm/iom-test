@@ -29,12 +29,12 @@ export default class Node {
   }
 
   onBlur() {
-    this.checkValidName();
+    this.checkEmptyName();
     this.isEdit = false;
   }
 
   onEnter(event) {
-    this.checkValidName();
+    this.checkEmptyName();
     event.target.blur();
     this.isEdit = false;
   }
@@ -45,8 +45,12 @@ export default class Node {
     this.isEdit = false;
   }
 
-  checkValidName() {
-    this.name.length > 0 && this.name.filter(word => word !== ' ').length > 0 ? this.changeName() : this.leaveName();
+  checkEmptyName() {
+    this.name.length > 0 && this.checkingAllSpaces() ? this.changeName() : this.leaveName();
+  }
+
+  checkingAllSpaces() {
+    return this.name.split(' ').filter(symbol => symbol !== '').length > 0
   }
 
   leaveName() {
