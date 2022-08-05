@@ -10,6 +10,19 @@ export default class Folder extends Node {
 
   add(node) {
     this.children.push(node);
+    this.sort()
+  }
+
+  sort() {
+    this.children = [...this.getFolders(), ...this.getFile()]
+  }
+
+  getFolders() {
+    return this.children.filter(child => child.className === "Folder")
+  }
+
+  getFile() {
+    return this.children.filter(child => child.className === "File")
   }
 
   import(tree) {

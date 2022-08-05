@@ -46,7 +46,7 @@ export default class Node {
   }
 
   checkValidName() {
-    this.name.length > 0 ? this.changeName() : this.leaveName();
+    this.name.length > 0 && this.name.filter(word => word !== ' ').length > 0 ? this.changeName() : this.leaveName();
   }
 
   leaveName() {
