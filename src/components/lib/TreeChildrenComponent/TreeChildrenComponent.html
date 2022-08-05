@@ -38,6 +38,5 @@
     :key="child.id"
     :node="child"
   ></tree-children-component>
-  <add-node-component v-if="node.constructor.name === 'Folder' && node.isAdded">
-  </add-node-component>
+  <add-node-component v-if="node.constructor.name === 'Folder' && node.isAdded" :node="node" />
 </ul>

@@ -3,24 +3,30 @@
     <div class="tree-item__side tree-item__side--left">
       <img
         class="tree-item__img tree-item__img--indent"
-        :src="require(`@/assets/${selectedNode.value ? selectedNode.value : 'plus' + '.png'}`)"
+        :src="require(`@/assets/${selectedNode ? selectedNode.toLowerCase() + '.png' : 'plus' + '.png'}`)"
         alt=""
       />
       <input
         class="tree-item__name tree-item__input"
-        v-model="name"
+        :class="{ 'tree-item__input--active': newNode.isEdit }"
+        :ref="setItemRef"
+        v-model="newNode.name"
+        @blur="newNode.onBlur()"
+        @keyup.enter="newNode.onEnter($event)"
+        @keyup.esc="newNode.onEsc($event)"
+        @click="newNode.handlerEdit(itemRef)"
       />
-      <select class="tree-item__select tree-item__select--active" v-model="selectedNode">
+      <select class="tree-item__select tree-item__select--active tree-item__select--indent" v-model="selectedNode">
         <option 
-          v-for="node in arrayNode"
-          :value="node.value"
-          :label="node.value"
-          :key="node.value"
+          v-for="option in optionNode"
+          :value="option.value"
+          :label="option.value"
+          :key="option.value"
         />
       </select>
     </div>
     <div class="tree-item__side">
-      <button class="tree-item__ok tree-item__ok--indent">OK</button>
+      <button class="tree-item__ok tree-item__ok--indent" @click="addNode(node, newNode, selectedNode)">OK</button>
     </div>
   </li>
 </ul>

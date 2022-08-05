@@ -1,28 +1,46 @@
 import { ref } from "vue";
+import { Node, Folder, File } from "@/classes";
 
 export default {
-  // props: {
-  //   node: Object,
-  // },
+  props: {
+    node: Object,
+  },
 
   setup() {
+    
+    const itemRef = ref({});
+    const setItemRef = (el) => {
+      if (el) {
+        itemRef.value.el = el;
+      }
+    };
 
-    const arrayNode = [
+    const newNode = ref(new Node(null, "New node"));
+
+    const optionNode = [
       {
         value: "Folder",
-        icon: "folder.png"
       },
       {
         value: "File",
-        icon: "file.png"
       },
     ];
 
-    let selectedNode = ref('')
+    let selectedNode = ref("");
+
+    function addNode(parent, child, selectedClass) {
+      selectedClass === 'Folder' ? parent.add(new Folder(parent, child.name)) : parent.add(new File(parent, child.name))
+      parent.isAdded = false
+    }
 
     return {
-      arrayNode,
+      optionNode,
       selectedNode,
-    }
+      itemRef,
+      setItemRef,
+      newNode,
+      addNode,
+
+    };
   },
 };

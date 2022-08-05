@@ -74,6 +74,7 @@
 .tree-item__select {
   background-color: inherit;
   border: none;
+  height: 20px;
 }
 
 .tree-item__select:disabled {
@@ -87,6 +88,10 @@
 .tree-item__select--active {
   background-color: white;
   box-shadow: 1px 1px 1px;
+}
+
+.tree-item__select--indent {
+  margin-left: 10px;
 }
 
 .tree-item__ok {
