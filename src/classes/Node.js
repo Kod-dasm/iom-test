@@ -46,11 +46,11 @@ export default class Node {
   }
 
   checkEmptyName() {
-    this.name.length > 0 && this.checkingAllSpaces() ? this.changeName() : this.leaveName();
+    this.name.length && this.checkingAllSpaces() ? this.changeName() : this.leaveName();
   }
 
   checkingAllSpaces() {
-    return this.name.split(' ').filter(symbol => symbol !== '').length > 0
+    return this.name.split(' ').filter(symbol => symbol !== '').length
   }
 
   leaveName() {
