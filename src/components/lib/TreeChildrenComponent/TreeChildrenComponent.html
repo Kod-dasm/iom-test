@@ -3,8 +3,14 @@
     <div class="tree-item__side tree-item__side--left">
       <img
         class="tree-item__img tree-item__img--indent"
+        :class="{ 'tree-item__img--arrow': !node.isComplicatedAccordion }"
+        :src="require(`@/assets/arrow.png`)"
+        @click="node.isComplicatedAccordion = !node.isComplicatedAccordion"
+        v-if="node.className === 'Folder'"
+      />
+      <img
+        class="tree-item__img tree-item__img--indent"
         :src="require(`@/assets/${node.icon}`)"
-        alt=""
       />
       <input
         class="tree-item__name tree-item__input"
@@ -33,13 +39,15 @@
       ></button>
     </div>
   </li>
-  <tree-children-component
-    v-for="(child, index) in node.children"
-    :key="child.id"
-    :node="child"
-  ></tree-children-component>
-  <add-node-component
-    v-if="node.className === 'Folder' && node.isAdded"
-    :node="node"
-  />
+  <template v-if="!node.isComplicatedAccordion">
+    <tree-children-component
+      v-for="(child, index) in node.children"
+      :key="child.id"
+      :node="child"
+    ></tree-children-component>
+    <add-node-component
+      v-if="node.className === 'Folder' && node.isAdded"
+      :node="node"
+    />
+  </template>
 </ul>
