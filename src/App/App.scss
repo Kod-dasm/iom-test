@@ -16,6 +16,9 @@ body {
 }
 
 .frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 30px solid rgb(160, 160, 160); 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -25,6 +28,30 @@ body {
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: hsl(0 0% 50%);
+}
+
+.frame__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cbcbcc85;
+  height: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.frame__img {
+  width: 30px;
+  height: 30px;
+}
+
+.frame__img:hover {
+  width: 25px;
+  height: 25px;
+  background-position: center center;
+}
+
+.frame__img:active {
+  opacity: .4;
 }
 
 @media (max-width: 628px) {
