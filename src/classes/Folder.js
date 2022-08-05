@@ -2,6 +2,7 @@ import { Node, File } from ".";
 
 export default class Folder extends Node {
   className = "Folder"
+  isComplicatedAccordion = false
   isAdded = false;
   number = 0;
   icon = "folder.png";

@@ -50,6 +50,10 @@
   height: 20px;
 }
 
+.tree-item__img--arrow {
+  transform: rotate(90deg);
+}
+
 .tree-item__img--indent {
   margin: 0 10px;
 }
