@@ -1,4 +1,5 @@
 import { TreeParentComponent } from "@/components";
+import { TREE } from "@/consts"
 
 import { useDataTreeStore } from "@/stores/dataTree";
 
@@ -11,7 +12,7 @@ export default {
   setup() {
     const dataTree = useDataTreeStore();
 
-    dataTree.root.import(dataTree.tree);
+    dataTree.root.import(TREE);
 
     return {
       dataTree,
